@@ -3,6 +3,8 @@ package helloworld;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
+import org.joda.time.LocalTime;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,9 +19,13 @@ public class GreetingController implements Controller
    {
       String userName = request.getParameter("user");
       String result = "";
+      
       if (userName != null)
       {
-        result = "Hello, " + userName + "!";
+      
+        LocalTime currentTime = new LocalTime();
+      
+        result = "Hello, " + userName + "! Time is " + currentTime;
       }
 
       ModelAndView view = new ModelAndView("hello_view");
